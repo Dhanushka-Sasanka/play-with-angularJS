@@ -1,0 +1,23 @@
+
+
+    <div class="card" ng-repeat="( key , order ) in orderList">
+        <div class="card-body">
+            <div class="card-title">
+                <span style="font-weight: bolder;">Using External Template and ng-repeat directive {{$index}}</span>
+            </div>
+
+            <div class="d-flex">
+s
+                <p style="color: darkorchid; margin-right: 25px;">Order ID :{{ ' '+ order.orderID}}</p>
+                <p style="color: darkorchid; margin-right: 25px;">Order Date :{{ order.orderDate }}</p>
+                <p style="color: darkorchid; margin-right: 25px;">Customer Name :{{ order.customerName}}</p>
+                <p style="color: darkorchid; margin-right: 25px;">Order Amount :{{ order.amount | currency: 'RS ' : 2 }}</p>
+                <div class="">
+                    <button class="btn btn-primary btn-sm " value={{key}}>PREVIOUS</button>
+                    <button class="btn btn-danger btn-sm ">NEXT</button>
+                </div>
+                
+            </div>
+           
+        </div>
+    </div>

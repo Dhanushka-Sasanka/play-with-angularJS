@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular JS Paractise.</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./node_modules/angular/angular.js"></script>
+
+    <script src="./app/app.module.js"></script>
+    <script src="./app/app.config.js"></script>
+
+    <script src="./app/views/customer/customer.module.js"></script>
+    <script src="./app/views/customer/customer.component.js"></script>
+
+    <script src="./app/views/product/product.module.js"></script>
+    <script src="./app/views/product/product.component.js"></script>
+
+    <script src="./app/views/orders/orders.module.js"></script>
+    <script src="./app/views/orders/orders.component.js"></script>
+
+
+</head>
+
+<body>
+    <div class="main-sec">
+        <h2 class="text-center m-2">This is Paractise for Angular JS</h2>
+
+        <div class="row m-1">
+
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <span style="font-weight: bolder;">String interpolation mark</span>
+                        </div>
+                        <p>Nothing here {{'yet' + '!'}}</p>
+                        <p>Add Operation here {{5 + 6 }}</p>
+                        <p>Multiply Operation here {{5 * 6 }}</p>
+                        <p>Divide Operation here {{23 / 6}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <span style="font-weight: bolder;">Two way data Binding.</span>
+                        </div>
+
+                        <input class="form-control" type="text" name="myName" id="myName" ng-model="myName">
+                        <p>My Name is {{ myName }}</p>
+
+                        <input class="form-control" type="text" name="myAge" id="myAge" ng-model="myAge">
+                        <p>My Age is {{ myAge }}</p>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <span style="font-weight: bolder;">Condiitonal directives</span>
+                        </div>
+                        <label for="examResults">Input your exam results</label>
+                        <input class="form-control" type="number" id="examResults" ng-model="examResults"
+                            placeholder="Type Number">
+
+                        <p style="color: red ;" class="m-3" ng-if="examResults <= 49">Your are Failed the exam.</p>
+                        <p style="color:darkblue ;" class="m-3" ng-if="examResults >= 50">Your are Passed the exam.</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div ng-controller="CustomerController">
+                    
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <span style="font-weight: bolder;">Using $scope</span>
+                                </div>
+
+                                <p style="color: darkorchid;">Customer ID :{{ ' '+ customerId}}</p>
+                                <p style="color: darkorchid;">Customer Name :{{customerName}}</p>
+                                <p style="color: darkorchid;">Customer Address :{{ address}}</p>
+                                <p style="color: darkorchid;">Customer Salary :{{ salary | currency: 'RS ' : 2 }}</p>
+
+                                <input class="form-control" type="text" placeholder="Salary Increment %"
+                                    ng-model="salaryIncrementPrecentage" ng-keyup="customerSalaryIncrement()">
+
+                                <button class="btn btn-success btn-sm mt-2">INCREMENT</button>
+                                <p style="color: darkorchid;" ng-model="incrementedSalary">Incremented Salary {{
+                                    incrementedSalary | currency: 'RS ' : 2 }} </p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row m-1">
+            <div class="col-md-3">
+                <product-list></product-list>
+            </div>
+            
+        </div>
+
+        <div class="row m-1">
+          
+                <order-component></order-component>
+            
+        </div>
+    </div>
+
+
+</body>
+
+</html>
